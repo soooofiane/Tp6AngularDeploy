@@ -1,0 +1,22 @@
+<h4>Détail de l'activité :</h4>
+
+@if (activite !== undefined) {
+  <p>
+    {{ numeroActivite }}. Nom de l'activité :
+    @if (enEdition) {
+      <input type="text" [(ngModel)]="titreModifie" aria-label="Nom de l'activité">
+    } @else {
+      <strong>{{ activite }}</strong>
+    }
+  </p>
+
+  <button type="button" (click)="supprimeElem(indexActivite)">Supprimer</button>
+  @if (enEdition) {
+    <button type="button" (click)="sauvegarder()">Sauvegarder</button>
+  } @else {
+    <button type="button" (click)="modifier()">Modifier</button>
+    <button type="button" (click)="retour()">Retour</button>
+  }
+} @else {
+  <p>Activité introuvable.</p>
+}
